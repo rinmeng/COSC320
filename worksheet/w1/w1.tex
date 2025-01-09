@@ -21,14 +21,14 @@
     \begin{enumerate}
         \item Small and trivial instances of the problem, consider these instances:
             \begin{enumerate}
-                \item Only one employer $e$ and one sutdent $s$:
+                \item Only one student $s$ and one employer $e$:
                 \begin{enumerate}[-]
                     \item Students: ${s_1}$
                     \item Employers: ${e_1}$
                     \item Preferences: 
                         \begin{enumerate}
-                            \item $\textbf{Prefers}(e_1, s_1)$
                             \item $\textbf{Prefers}(s_1, e_1)$
+                            \item $\textbf{Prefers}(e_1, s_1)$
                         \end{enumerate}
                     \item Triviality: Only one student and one employer, so there is only one match.
                 \end{enumerate}
@@ -38,10 +38,10 @@
                     \item Employers: ${e_1, e_2}$
                     \item Preferences:
                         \begin{enumerate}
-                            \item $\textbf{Prefers}(e_1, s_1 \lor s_2)$
-                            \item $\textbf{Prefers}(e_2, s_1 \lor s_2)$
                             \item $\textbf{Prefers}(s_1, e_1 \lor e_2)$
                             \item $\textbf{Prefers}(s_2, e_1 \lor e_2)$
+                            \item $\textbf{Prefers}(e_1, s_1 \lor s_2)$
+                            \item $\textbf{Prefers}(e_2, s_1 \lor s_2)$
                         \end{enumerate}
                     \item Triviality: All students and employers have indifferent preferences, 
                     so there are multiple stable matchings.
@@ -52,35 +52,35 @@
                     \item Employers: ${e_1, e_2}$
                     \item Preferences:
                         \begin{enumerate}
-                            \item $\textbf{Prefers}(e_1, s_1)$
-                            \item $\textbf{Prefers}(e_2, s_2)$
                             \item $\textbf{Prefers}(s_1, e_1)$
                             \item $\textbf{Prefers}(s_2, e_2)$
+                            \item $\textbf{Prefers}(e_1, s_1)$
+                            \item $\textbf{Prefers}(e_2, s_2)$
                         \end{enumerate}
                     \item Triviality: All are perfectly matched, therefore there is only one stable matching.
                 \end{enumerate}
                 \end{enumerate}
         \item Potential solutions to these instances:
             \begin{enumerate}
-                \item Only one employer $e$ and one sutdent $s$:
+                \item Only one student $s$ and one employer $e$:
                 \begin{enumerate}[-]
-                    \item The only stable matching is $(e_1, s_1)$.
+                    \item The only stable matching is $(s_1, e_1)$.
                     \item This solution is trivial but is optimal as well.
                 \end{enumerate}
                 \item Equal preferences for all students and employers:
                 \begin{enumerate}[-]
                     \item There are multiple stable matchings: 
-                    $(e_1, s_1), (e_2, s_2)$ and $(e_1, s_2), (e_2, s_1)$.
+                    $(s_1, e_1), (s_2, e_2)$ and $(s_1, e_2), (s_2, e_1)$.
                     \item This solution is optimal, but not unique.
                 \end{enumerate}
                 \item Perfectly matched preferences between students and employers:
                 \begin{enumerate}[-]
-                    \item The only stable matching is $(e_1, s_1), (e_2, s_2)$.
+                    \item The only stable matching is $(s_1, e_1), (s_2, e_2)$.
                     \item This solution is optimal and unique.
                 \end{enumerate}
             \end{enumerate}
             There are many ways to conclude if a solution is better.
-            When we consider fairness and satisfication, we may value $\textbf{Instance b}$ more than 
+            When we consider fairness and satisfaction, we may value $\textbf{Instance b}$ more than 
             others. However, when we consider uniqueness and optimality, 
             we may value $\textbf{Instance c}$ more than others.
     \end{enumerate}
@@ -91,16 +91,24 @@
             \item Let $S = \{s_1, s_2, \ldots, s_n\}$ 
             be the set of students.
             \item Let $E = \{e_1, e_2, \ldots, e_n\}$ be 
-            the set of employers 
+            the set of employers.
             \item Student's preference list $P(s_i)$, which is a ranked 
             list of employers from most preferred to least preferred.
             \item Employer's preference list $P(e_j)$, which is a ranked
             list of students from most preferred to least preferred.
+            \item A matching is a bijection $M : S \rightarrow E$, or a set of pairs $M = \{(s, e)\}$ where $s$ and $e$ 
+            are matched uniquely.
+            \item A blocking pair $(s_i, e_j)$ is a pair of
+             student-employer that prefer each other over their current match.
+                \begin{enumerate}
+                    \item $s_i$ prefers $e_j$ over $M(s_i)$.
+                    \item $e_j$ prefers $s_i$ over $M(e_j)$.
+                \end{enumerate}
         \end{enumerate}
     \item Notation for describing a potential solution
         \begin{enumerate}
-            \item A set of potential matches $M = {(e_1, s_1), (s_2, e_2)}$ 
-            of employer-student pairs.
+            \item A set of potential matches $M = \{(s_1, e_1), (s_2, e_2)\}$ 
+            of student-employer pairs.
             \item Valid if and only if every student and employer is assigned exactly one (uniqueness).
         \end{enumerate}
     \item Good solutions
@@ -113,15 +121,16 @@
             \item Uniqueness
                 \begin{enumerate}
                     \item If a unique stable matching exists, it is the only correct solution.
-                    \item If multiple stable matchings exist, we will pick the one that maximizes a criteria (e.g., student happiness, fairness).
+                    \item If multiple stable matchings exist, we will pick the one that maximizes a criterion (e.g., student happiness, fairness).
                 \end{enumerate}
             \item Stability
                 \begin{enumerate}
-                    \item A matching $M$ is stable if there exists no employer-student pair 
-                    $(e_i, s_j)$ such that
+                    \item No blocking pairs exist in the matching.
+                    \item A matching $M$ is stable if there exists no student-employer pair 
+                    $(s_i, e_j)$ such that
                     \begin{enumerate}
-                        \item $e_i$ prefers $s_j$ over $M(e_i)$, the student currently matched with $e_i$
-                        \item $s_j$ prefers $e_i$ over $M(s_j)$, the employer currently matched with $s_j$
+                        \item $s_i$ prefers $e_j$ over $M(s_i)$, the employer currently matched with $s_i$.
+                        \item $e_j$ prefers $s_i$ over $M(e_j)$, the student currently matched with $e_j$.
                     \end{enumerate}
                 \end{enumerate}
         \end{enumerate}
