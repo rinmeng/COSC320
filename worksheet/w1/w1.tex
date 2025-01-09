@@ -1,0 +1,130 @@
+\documentclass[12pt]{article}
+
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{changepage}
+\usepackage{graphicx}
+
+\title{Worksheet 1: SMP}
+\author{Rin Meng 51940633}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Build intuition through examples.}
+    From this point onwards, we will read $\textbf{Prefers}(x, y)$ as $x$ prefers $y$ over some other option.
+
+    \begin{enumerate}
+        \item Small and trivial instances of the problem, consider these instances:
+            \begin{enumerate}
+                \item Only one employer $e$ and one sutdent $s$:
+                \begin{enumerate}[-]
+                    \item Students: ${s_1}$
+                    \item Employers: ${e_1}$
+                    \item Preferences: 
+                        \begin{enumerate}
+                            \item $\textbf{Prefers}(e_1, s_1)$
+                            \item $\textbf{Prefers}(s_1, e_1)$
+                        \end{enumerate}
+                    \item Triviality: Only one student and one employer, so there is only one match.
+                \end{enumerate}
+                \item Equal preferences for all students and employers:
+                \begin{enumerate}
+                    \item Students: ${s_1, s_2}$
+                    \item Employers: ${e_1, e_2}$
+                    \item Preferences:
+                        \begin{enumerate}
+                            \item $\textbf{Prefers}(e_1, s_1 \lor s_2)$
+                            \item $\textbf{Prefers}(e_2, s_1 \lor s_2)$
+                            \item $\textbf{Prefers}(s_1, e_1 \lor e_2)$
+                            \item $\textbf{Prefers}(s_2, e_1 \lor e_2)$
+                        \end{enumerate}
+                    \item Triviality: All students and employers have indifferent preferences, 
+                    so there are multiple stable matchings.
+                \end{enumerate}
+                \item Perfectly matched preferences between students and employers:
+                \begin{enumerate}
+                    \item Students: ${s_1, s_2}$
+                    \item Employers: ${e_1, e_2}$
+                    \item Preferences:
+                        \begin{enumerate}
+                            \item $\textbf{Prefers}(e_1, s_1)$
+                            \item $\textbf{Prefers}(e_2, s_2)$
+                            \item $\textbf{Prefers}(s_1, e_1)$
+                            \item $\textbf{Prefers}(s_2, e_2)$
+                        \end{enumerate}
+                    \item Triviality: All are perfectly matched, therefore there is only one stable matching.
+                \end{enumerate}
+                \end{enumerate}
+        \item Potential solutions to these instances:
+            \begin{enumerate}
+                \item Only one employer $e$ and one sutdent $s$:
+                \begin{enumerate}[-]
+                    \item The only stable matching is $(e_1, s_1)$.
+                    \item This solution is trivial but is optimal as well.
+                \end{enumerate}
+                \item Equal preferences for all students and employers:
+                \begin{enumerate}[-]
+                    \item There are multiple stable matchings: 
+                    $(e_1, s_1), (e_2, s_2)$ and $(e_1, s_2), (e_2, s_1)$.
+                    \item This solution is optimal, but not unique.
+                \end{enumerate}
+                \item Perfectly matched preferences between students and employers:
+                \begin{enumerate}[-]
+                    \item The only stable matching is $(e_1, s_1), (e_2, s_2)$.
+                    \item This solution is optimal and unique.
+                \end{enumerate}
+            \end{enumerate}
+            There are many ways to conclude if a solution is better.
+            When we consider fairness and satisfication, we may value $\textbf{Instance b}$ more than 
+            others. However, when we consider uniqueness and optimality, 
+            we may value $\textbf{Instance c}$ more than others.
+    \end{enumerate}
+\section{Developing a Formal Problem Specification}
+   \begin{enumerate}
+    \item Notation for describing the problem instance.
+        \begin{enumerate}
+            \item Let $S = \{s_1, s_2, \ldots, s_n\}$ 
+            be the set of students.
+            \item Let $E = \{e_1, e_2, \ldots, e_n\}$ be 
+            the set of employers 
+            \item Student's preference list $P(s_i)$, which is a ranked 
+            list of employers from most preferred to least preferred.
+            \item Employer's preference list $P(e_j)$, which is a ranked
+            list of students from most preferred to least preferred.
+        \end{enumerate}
+    \item Notation for describing a potential solution
+        \begin{enumerate}
+            \item A set of potential matches $M = {(e_1, s_1), (s_2, e_2)}$ 
+            of employer-student pairs.
+            \item Valid if and only if every student and employer is assigned exactly one (uniqueness).
+        \end{enumerate}
+    \item Good solutions
+        \begin{enumerate}
+            \item Optimality
+                \begin{enumerate}
+                    \item A solution is student-optimal if it provides the best possible match for every student.
+                    \item A solution is employer-optimal if it provides the best possible match for every employer.
+                \end{enumerate}
+            \item Uniqueness
+                \begin{enumerate}
+                    \item If a unique stable matching exists, it is the only correct solution.
+                    \item If multiple stable matchings exist, we will pick the one that maximizes a criteria (e.g., student happiness, fairness).
+                \end{enumerate}
+            \item Stability
+                \begin{enumerate}
+                    \item A matching $M$ is stable if there exists no employer-student pair 
+                    $(e_i, s_j)$ such that
+                    \begin{enumerate}
+                        \item $e_i$ prefers $s_j$ over $M(e_i)$, the student currently matched with $e_i$
+                        \item $s_j$ prefers $e_i$ over $M(s_j)$, the employer currently matched with $s_j$
+                    \end{enumerate}
+                \end{enumerate}
+        \end{enumerate}
+   \end{enumerate}
+
+\end{document}
