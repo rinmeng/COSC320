@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1736875794.89016 "/Users/rin/COSC320/worksheet/w2/w2.tex" "w2.pdf" "w2" 1736875795.14684 0
-  "/Users/rin/COSC320/worksheet/w2/w2.tex" 1736875794.60572 326 a9053024d4ce17dc6a89b9adb9ede33b ""
+["pdflatex"] 1736883798.15367 "/Users/rin/COSC320/worksheet/w2/w2.tex" "w2.pdf" "w2" 1736883798.59655 0
+  "/Users/rin/COSC320/worksheet/w2/w2.tex" 1736883797.77249 341 147c7d3223913a421d121466d25b1153 ""
   "/Users/rin/Library/TinyTeX/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/Users/rin/Library/TinyTeX/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1246382020 916 f87d7c45f9c908e672703b83b72241a3 ""
   "/Users/rin/Library/TinyTeX/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm" 1246382020 928 2dc8d444221b7a635bb58038579b861a ""
@@ -39,8 +39,8 @@
   "/Users/rin/Library/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1727857643 93453 ee14a1eb4e08d3cf56fad19be40f22a7 ""
   "/Users/rin/Library/TinyTeX/texmf-var/web2c/pdftex/pdflatex.fmt" 1727857668 1901502 824aaf3fdf1ffb9f98b249d75d249d7b ""
   "/Users/rin/Library/TinyTeX/texmf.cnf" 1726167582.34247 708 85fd07691b6294ba94c59dbc62380410 ""
-  "w2.aux" 1736875795.10178 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
-  "w2.tex" 1736875794.60572 326 a9053024d4ce17dc6a89b9adb9ede33b ""
+  "w2.aux" 1736883798.53825 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "w2.tex" 1736883797.77249 341 147c7d3223913a421d121466d25b1153 ""
   (generated)
   "w2.aux"
   "w2.log"
