@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1736883123.16425 "/Users/rin/COSC320/worksheet/w1/w1.tex" "w1.pdf" "w1" 1736883123.53422 0
-  "/Users/rin/COSC320/worksheet/w1/w1.tex" 1736883122.8069 14800 653556054b85d9e0175ec42a26ffa07a ""
+["pdflatex"] 1736883361.90458 "/Users/rin/COSC320/worksheet/w1/w1team2.tex" "w1team2.pdf" "w1team2" 1736883362.28398 0
+  "/Users/rin/COSC320/worksheet/w1/w1team2.tex" 1736883361.17277 6543 0ce79615878fd2f6135f742b1ac074b8 ""
   "/Users/rin/Library/TinyTeX/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/Users/rin/Library/TinyTeX/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
   "/Users/rin/Library/TinyTeX/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1246382020 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -8,8 +8,6 @@
   "/Users/rin/Library/TinyTeX/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm" 1246382020 908 2921f8a10601f252058503cc6570e581 ""
   "/Users/rin/Library/TinyTeX/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm" 1246382020 940 228d6584342e91276bf566bcf9716b83 ""
   "/Users/rin/Library/TinyTeX/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1136768653 1324 c910af8c371558dc20f2d7822f66fe64 ""
-  "/Users/rin/Library/TinyTeX/texmf-dist/fonts/tfm/public/cm/cmbx6.tfm" 1136768653 1344 8a0be4fe4d376203000810ad4dc81558 ""
-  "/Users/rin/Library/TinyTeX/texmf-dist/fonts/tfm/public/cm/cmbx8.tfm" 1136768653 1332 1fde11373e221473104d6cc5993f046e ""
   "/Users/rin/Library/TinyTeX/texmf-dist/fonts/tfm/public/cm/cmex10.tfm" 1136768653 992 662f679a0b3d2d53c1b94050fdaa3f50 ""
   "/Users/rin/Library/TinyTeX/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm" 1136768653 1524 4414a8315f39513458b80dfc63bff03a ""
   "/Users/rin/Library/TinyTeX/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm" 1136768653 1512 f21f83efb36853c0b70002322c1ab3ad ""
@@ -23,7 +21,6 @@
   "/Users/rin/Library/TinyTeX/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm" 1136768653 1120 8b7d695260f3cff42e636090a8002094 ""
   "/Users/rin/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1248133631 32080 340ef9bf63678554ee606688e7b5339d ""
   "/Users/rin/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb" 1248133631 36741 fa121aac0049305630cf160b86157ee4 ""
-  "/Users/rin/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb" 1248133631 35469 70d41d2b9ea31d5d813066df7c99281c ""
   "/Users/rin/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1248133631 32722 d7379af29a190c3f453aba36302ff5a9 ""
   "/Users/rin/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb" 1248133631 32362 179c33bbf43f19adbb3825bb4e36e57a ""
   "/Users/rin/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1248133631 32726 0a1aea6fcd6468ee2cf64d891f5c43c8 ""
@@ -54,10 +51,10 @@
   "/Users/rin/Library/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1727857643 93453 ee14a1eb4e08d3cf56fad19be40f22a7 ""
   "/Users/rin/Library/TinyTeX/texmf-var/web2c/pdftex/pdflatex.fmt" 1727857668 1901502 824aaf3fdf1ffb9f98b249d75d249d7b ""
   "/Users/rin/Library/TinyTeX/texmf.cnf" 1726167582.34247 708 85fd07691b6294ba94c59dbc62380410 ""
-  "w1.aux" 1736883123.45166 685 457e7a76242be656d3294d938a37ede7 "pdflatex"
-  "w1.tex" 1736883122.8069 14800 653556054b85d9e0175ec42a26ffa07a ""
+  "w1team2.aux" 1736883362.20307 297 df741bda467239e472ed61e081bf7fdf "pdflatex"
+  "w1team2.tex" 1736883361.17277 6543 0ce79615878fd2f6135f742b1ac074b8 ""
   (generated)
-  "w1.aux"
-  "w1.log"
-  "w1.pdf"
+  "w1team2.aux"
+  "w1team2.log"
+  "w1team2.pdf"
   (rewritten before read)

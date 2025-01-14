@@ -8,7 +8,7 @@
 \usepackage{graphicx}
 
 \title{Worksheet 1: SMP}
-\author{Rin Meng 51940633}
+\author{Rin Meng 51940633\\ Kevin Zhang 10811057\\ Mika Panagsagan 29679552}
 \date{\today}
 
 \begin{document}
@@ -135,5 +135,131 @@
                 \end{enumerate}
         \end{enumerate}
    \end{enumerate}
+
+\section{Identify similar problems. What are the similarities?}
+   \begin{enumerate}
+    \item Marriage Problem (Stable Marriage Problem), where each men has their own primary choice,
+    each women has their own primary choice, and each person has a preference list.
+    \item Admission-Student problem, where each student has their own primary choice for colleges,
+    and each college has their own primary choice for students, each party also has a preference list.
+   \end{enumerate}
+
+\section{Evaluate simple algorithmic approaches, such as brute force.}
+   \begin{enumerate}
+    \item Brute force algorithm
+        \begin{enumerate}
+            \item Each student has a preference list of employers, 
+            and each employer has a preference list of students.
+            \item Employer-optimal choice: For all employers $E = {e_1, e_2, \ldots, e_n}$ we will access their
+            preference list $P(e_i)$, add all the match to another list $M$.
+            looping through all of the students $S = {s_1, s_2, \ldots, s_n}$ and checking each of their own
+            preference list $P(s_i)$ add all the match to another list $M$.
+            \item Student-optimal choice: For all students $S = {s_1, s_2, \ldots, s_n}$ we will access their
+            preference list $P(s_i)$, and match it by
+            looping through all of the employers $E = {e_1, e_2, \ldots, e_n}$ and checking each of their own
+            preference list $P(e_i)$, add all the match to another list $M$.
+        \end{enumerate}
+    \item 
+        \begin{enumerate}
+            \item Bound by the time $t(n)$ we can say that our worst-case scenario of our brute force algorithm is
+            $O(n!)$.
+                \begin{enumerate}[-]
+                    \item The number of ways to match $n$ employers and $n$ students is $n!$.
+                    \item For each employer, we must check each student's preference list and 
+                    for each student, we must check each employer's preference list, and that is $O(n^2)$.
+                    \item This results in a worst-case time complexity of $O(n! \cdot n^2)$.
+                    \item Since $n$! grows faster than $n^2$, we can simplify this to $O(n!)$.
+                \end{enumerate}
+            \item Each potential solution is a perfect matching between $n$ employers and $n$ students, therefore the total
+            number of potential solutions is $n$!.
+            \item Overall worst-case running time of the brute force will always be $O(n!)$.
+                \begin{enumerate}[-]
+                    \item We generate $n$! potential solutions.
+                    \item For each solution, we spend $O(n^2)$ time to check if it is stable.
+                    \item Since generating a solution takes negligible time, compared to checking it, the dominant 
+                    term is 
+                    \[ O(n! \cdot n^2) = O(n^2) \]
+                    \item Since $n$! grows faster than $n^2$, we can simplify this to $O(n!)$.
+                \end{enumerate}
+            Therefore, the brute force algorithm has a factorial time complexity of $O(n!)$, which is extremely inefficient for
+            large $n$.
+        \end{enumerate}
+   \end{enumerate}
+\section{Design a better algorithm.}
+    We can do this by using the Gale-Shapley algorithm.
+    \begin{enumerate}
+        \item Input 
+            \begin{enumerate}
+                \item Two preference lists, one for students and one for employers.
+                \item The number of students and employers, $n$.
+            \end{enumerate}
+        \item Steps:
+            \begin{enumerate}
+                \item Initialization: Create an empty list of matched pairs. 
+                All applicants are initially unmatched, and all 
+                employers are initially unmatched.
+                \item Proposal Phase: Each unmatched applicant proposes to the 
+                first employer on their preference list who has not already rejected them.
+                \item Employer's response:
+                    \begin{enumerate}
+                        \item Each employer receives proposals and considers them:
+                        \begin{enumerate}[-]
+                            \item If they are unmatched, they accept the proposal.
+                            \item If they are already matched but prefer 
+                            the new applicant over their current match, 
+                            they reject the current match and accept the new proposal.
+                            \item If they prefer their current match, they reject the new proposal.
+                        \end{enumerate}
+                    \end{enumerate}
+                \item Repeat: Applicants who have been rejected by all employers or who haven't 
+                yet been matched will propose to the next employer on their list.
+                \item Termination: The algorithm terminates when no 
+                applicants are left to propose or when everyone is matched. 
+                At this point, we have a stable matching.
+            \end{enumerate}
+        \item Time complexity: 
+            \begin{enumerate}
+                \item Time per proposal, each student proposes to at most $n$ employers, 
+                and each employer receives at most $n$ proposals, so the time per proposal is $O(n)$.
+                \item Total time complexity, since there are $n$ students and $n$ employers,
+                the total time complexity is $O(n^2)$.
+            \end{enumerate}
+        \item Walkthrough:
+            \begin{enumerate}
+                \item Let $n = 3$, $S$ be the student set, and $E$ be the employer set,
+                 $M$ be the matching set, and $P$ be the preference list.
+                \item $S = \{s_1, s_2, s_3\}$ and $E = \{e_1, e_2, e_3\}$, $M = \emptyset$.
+                \item $P(s_1) = \{e_1, e_2, e_3\}$, $P(s_2) = \{e_2, e_1, e_3\}$, $P(s_3) = \{e_3, e_2, e_1\}$.
+                \item $P(e_1) = \{s_1, s_2, s_3\}$, $P(e_2) = \{s_2, s_3, s_1\}$, $P(e_3) = \{s_3, s_1, s_2\}$.
+                \begin{enumerate}
+                    \item $s_1$ proposes to $e_1$, $e_1$ accepts.
+                    \item $s_2$ proposes to $e_2$, $e_2$ accepts.
+                    \item $s_3$ proposes to $e_3$, $e_3$ accepts.
+                \end{enumerate}
+                \item Terminate: we the most stable matching, which priotiizes the students.
+                \[M = \{(s_1, e_1), (s_2, e_2), (s_3, e_3)\}\]
+            \end{enumerate}
+        \item Challenges:
+            \begin{enumerate}
+                \item Let $n = 3$, $S$ be the student set, and $E$ be the employer set,
+                 $M$ be the matching set, and $P$ be the preference list.
+                \item $S = \{s_1, s_2, s_3\}$ and $E = \{e_1, e_2, e_3\}$, $M = \emptyset$.
+                \item $P(s_1) = \{e_2, e_3\}$, $P(s_2) = \{e_1, e_3\}$, $P(s_3) = \{e_2, e_1\}$.
+                \item $P(e_1) = \{s_1, s_2, s_3\}$, $P(e_2) = \{s_2, s_3, s_1\}$, $P(e_3) = \{s_3, s_1, s_2\}$.
+                \begin{enumerate}
+                    \item $s_1$ proposes to $e_2$, $e_2$ accepts.
+                    \item $s_2$ proposes to $e_1$, $e_1$ accepts.
+                    \item $s_3$ proposes to $e_2$, $e_2$ accepts.
+                    \[ M = \{(s_1, e_2), (s_2, e_1), (s_3, e_2)\} \]
+                    \item Now we have to goto the employer's preference list, since there are two
+                    primary choice for student $s_1$ and $s_3$, we have to reject one of them.
+                    \item $e_1$ stays the same, goes with $s_2$.
+                    \item $e_3$ rejects $s_1$ and accepts $s_2$.
+                    \item $e_2$ rejects $s_2$ and accepts $s_3$.
+                    \[ M = \{(s_1, e_2), (s_2, e_1), (s_3, e_3)\} \]
+                \end{enumerate}
+            \end{enumerate}
+            
+    \end{enumerate}
 
 \end{document}
