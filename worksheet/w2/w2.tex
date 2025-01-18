@@ -8,12 +8,56 @@
 \usepackage{graphicx}
   
 \title{Worksheet 2: SMP Reductions}
-\author{Rin Meng 51940633 \\ Kevin Zhang 10811057 \\ Mika Panagsagan 29679552}
+\author{Rin Meng 51940633 \\ Kevin Zhang 10811057 \\ Mika Panagsagan 29679552 \\ Priyansh Mathur 84491356}
 \date{\today}
 
 \begin{document}
 
 \maketitle
+
+\setcounter{section}{5}
+
+\section{Promising Approach}
+
+A group of residents each needs a residency in some hospital. A group of hospitals each need some
+number (one or more) of residents, with some hospitals needing more and some fewer. Each group has
+preferences over which member of the other group they’d like to end up with. The total number of slots in
+hospitals is exactly equal to the total number of residents.
+We want to fill the hospitals slots with residents in such a way that no resident and hospital that
+weren’t matched up will collude to get around our suggestion (and give the resident a position at that
+hospital instead).
+
+\begin{enumerate}
+    \item We can reduce problem $B$ into SMP problem.
+    \item We can set up preference list for each hospitals and residents. For example we can have $n$ residents
+    and hospitals can have $n$ or $n - 1$.
+        \begin{itemize}
+            \item Resident's $R_n$ preference list can have up to $n$ or $n-1$ number of hopsitals.
+            \item Hospital's, $H_n$ prefference list can have up to $n$ residents.
+            \item $R_1$: $H_1, H_2$
+            \item $R_2$: $H_2, H_1$
+            \item $R_3$: $H_1, H_2$
+            \item $H_1$: $R_1, R_2, R_3$
+            \item $H_2$: $R_2, R_1, R_3$
+        \end{itemize}
+    \item The solution to the RHP instance from our solution $B$ instance, we can make a 
+     stable matching set is $M = (R_1, H_1), (R_2, H_2), (R_3, H_1)$
+    \item To convert from any instance $I$ of RHP into an instance $I'$ of $B$,
+    \begin{enumerate}
+        \item We convert this problem to an SMP problem.
+        \item For each resident and hospitals, we give them a preference list.
+        \item Then we make an empty stable matching list $M$.
+        \item We follow GS algorithm.
+        \item We can convert the stable matching list $M$ to a solution to the RHP instance.
+    \end{enumerate}
+    \item To convert from any instance $I$ of $B$ into an instance $I'$ of RHP,
+    \begin{enumerate}
+        \item Since our RHP set is still empty, we can implement the GS algorithm.
+        \item Residents has its own preference list as well as hospitals.
+        \item Find the stable match for either residents or hospitals.
+        \item We iterate until we get the most stable match.
+    \end{enumerate}
+\end{enumerate}
 
 
 \end{document}
