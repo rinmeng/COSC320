@@ -659,26 +659,43 @@ $(d,p,R[1..k])$.
 \begin{soln}
    \noindent
    \textbf{Base case:}  
-   If \( k = 1 \), there are two towns: town \( 0 \) (the start) and town \( 1 \) (the destination). The inter-town distance is \( R[1] \).  
-   The greedy algorithm checks whether this distance is less than or equal to \( dp \). Since the instance has a valid solution, we are guaranteed that \( R[1] \le dp \). Therefore, no intermediate provision stop is needed, and the greedy algorithm outputs the empty list as the solution. This is trivially optimal since the empty list is the shortest possible valid solution. Thus, the base case holds.
+   If \( k = 1 \), there are two towns: town \( 0 \) (the start) and town \( 1 \) (the destination).
+    The inter-town distance is \( R[1] \).  
+   The greedy algorithm checks whether this distance is less than or equal to \( dp \). 
+   Since the instance has a valid solution, we are guaranteed that \( R[1] \le dp \). 
+   Then, no provision stop is needed, and the greedy algorithm outputs 
+   the empty list as the solution. Thus, the base case holds.
    
    \vspace{0.2cm}
    \noindent
    \textbf{Inductive step:}  
-   Assume that the greedy algorithm outputs an optimal solution for any instance with \( k+1 \) towns (i.e., \( k \) inter-town distances), given a valid solution. We must show that the greedy algorithm also outputs an optimal solution for an instance with \( k+2 \) towns.
+   Assume that the greedy algorithm outputs an optimal solution for any 
+   instance with \( k+1 \) towns (i.e., \( k \) inter-town distances), 
+   given a valid solution. We must show that the greedy algorithm also
+    outputs an optimal solution for an instance with \( k+2 \) towns.
    
    \vspace{0.2cm}
    (i) \textbf{There is an optimal solution that starts with \( i_1 \) because...}  
-   Recall from part 4 that \( i_1 \) is the farthest town from town \( 0 \) reachable within a distance of at most \( dp \). By the argument in part 4, we can replace the first stop of any optimal solution with \( i_1 \) without losing optimality, forming a new solution \( L' \). Therefore, there exists an optimal solution that starts with \( i_1 \).
+   Recall from part 4 that \( i_1 \) is the farthest town from town \( 0 \) 
+   reachable within a distance of at most \( dp \). By the argument in part 4, 
+   we can replace the first stop of any optimal solution with \( i_1 \) without 
+   losing our optimal solution, 
+   forming a new solution \( L' \). Therefore, 
+   there exists an optimal solution that starts with \( i_1 \).
    
    \vspace{0.2cm}
-   (ii) \textbf{Once \( i_1 \) is added to the list, the remaining solution chosen by the Greedy algorithm is optimal because...}  
-   By the greedy algorithm's design, after selecting \( i_1 \), the remaining instance has only \( k+1 \) towns (from \( i_1 \) to the destination). By the inductive hypothesis, the greedy algorithm finds an optimal solution for this reduced instance. Thus, the remaining solution is also optimal.
+   (ii) \textbf{Once \( i_1 \) is added to the list, the remaining solution chosen 
+   by the Greedy algorithm is optimal because...}  
+   By the greedy algorithm's design, after selecting \( i_1 \), the remaining 
+   instance has only \( k+1 \) towns (from \( i_1 \) to the destination). By the 
+   inductive hypothesis, the greedy algorithm finds an optimal solution for this
+    reduced instance. Thus, the remaining solution is also optimal.
    
    \vspace{0.2cm}
    \noindent
    \textbf{Conclusion:}  
-   Combining (i) and (ii), we can conclude by induction that the greedy algorithm finds an optimal solution for any instance \((d, p, R[1..k])\) with a valid solution.
+   Combining (i) and (ii), we can conclude by induction that the greedy algorithm finds an 
+   optimal solution for any instance \((d, p, R[1..k])\) with a valid solution.
 \end{soln}
    
 
