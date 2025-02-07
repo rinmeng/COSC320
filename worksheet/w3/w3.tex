@@ -1,0 +1,43 @@
+\documentclass[12pt]{article}
+
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{changepage}
+\usepackage{graphicx}
+  
+\title{Worksheet 3: Asymptotic Analysis}
+\author{Rin Meng 51940633 \\ Kevin Zhang 10811057 \\ Mika Panagsagan 29679552 \\ Priyansh Mathur 84491356}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\setcounter{section}{1}
+
+\section{Functions/Orders of Growth for Code}
+
+
+\begin{enumerate}
+    \item Finding maximum in a list 
+    \[ \Omega(n) \leq \Theta(n) \leq O(n) \]
+    \textbf{Justification:} Because the loop must iterate at least once through all
+    the elements in the list to find the maximum, the lower bound is $\Omega(n)$,
+    and the highest possible time complexity is $O(n)$.
+
+    \item ``Median of three'' computation:
+    \[ \Omega(1) \leq \Theta(1) \leq O(1) \]
+    \textbf{Justification:} The function only compares three values and returns 
+    the median of the three. This is a constant time operation, 
+    so the time complexity is $O(1)$.
+
+    \item Counting inversions:
+    \[ \Omega(n) \leq \Theta(n \log n) \leq O(n^2) \]
+    \textbf{Justification:} The lower bound is $\Omega(n)$ assuming that all first element
+    of index $j$ satisfies the if statement. The upper bound is $O(n^2)$ because element
+    at index $j$ may not satisfy the if statement until the last element.
+\end{enumerate}
+
+\end{document}

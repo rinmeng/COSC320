@@ -1,0 +1,69 @@
+\documentclass[12pt]{article}
+
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{changepage}
+\usepackage{graphicx}
+  
+\title{Worksheet 4: Playing with Graphs}
+\author{Rin Meng 51940633 \\ Kevin Zhang 10811057 \\ Mika Panagsagan 29679552 \\ Priyansh Mathur 84491356}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\setcounter{section}{2}
+
+\section{Diameter Algorithm}
+
+Design an algorithm to find the \textbf{diameter} of an unweighted, 
+undirected, \textbf{connected} graph. For short,
+we’ll call this problem DIAMETER
+
+\renewcommand{\theenumi}{3.\arabic{enumi}}
+\begin{enumerate}
+\item Trivial and Small Instances
+    \begin{enumerate}[1.]
+        \item \begin{enumerate}
+            \item When a graph has a single node, the diameter is 0.
+            \item When a graph has two nodes, there can only be one diameter.
+            \item When a graph has no nodes, there is no diameter.
+        \end{enumerate}
+        \item We can make a graph of three nodes, $A$, $B$, and $C$, 
+        where $A$ is connected to $B$ and $B$ is connected to $C$. 
+        The diameter of this graph is 2. \verb|A -- B -- C| 
+        The diameter of this graph is 2.
+    \end{enumerate}
+\item Represent the Problem
+    \begin{enumerate}[1.]
+        \item $G = (V, E)$ is an unweighted, undirected, connected graph.
+        $V$ is the set of vertices in the graph. $E$ set of edges in the graph.
+        Using the graph above, we can say, $V = \{A, B, C\}$ and $E = \{(A, B), (B, C)\}$.
+        $G = (\{A, B, C\}, \{(A, B), (B, C)\})$
+        \item One trivial case can be represented as $V = \{A, B\}$,
+         $E = \{(A, B)\}$, $G = (\{A, B\})$
+         Since we only have two nodes, the diameter is always going to be 1.
+        \item 
+        \item 
+        Constraints for a node may not have an edge to itself: 
+        \[\forall v \in V, (v,v) \notin E\]
+        Constraints for an edge between two nodes may only appear once:
+        \[\forall v, u \in V, (v,u) \in E \implies (v,u) = (u, v)\]    
+    \end{enumerate}
+\item Represent the Solution
+    \begin{enumerate}[1.]
+        \item 
+        \item 
+    \end{enumerate}
+\item Similar Problems
+    \begin{enumerate}[1.]
+        \item Prim's Algorithm
+        \item Dijkstra's Algorithm
+    \end{enumerate}
+\end{enumerate}
+
+
+\end{document}
