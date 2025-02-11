@@ -1,0 +1,41 @@
+\documentclass[12pt]{article}
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{changepage}
+\usepackage{graphicx}
+  
+\title{Worksheet 6: Clustering Completed}
+\author{Rin Meng 51940633 \\ Kevin Zhang 10811057 \\ Mika Panagsagan 29679552 \\ Priyansh Mathur 84491356}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Clustering Completed}
+
+\begin{enumerate}
+    \item We can start by assuming that there exists an intra-category
+    lower similarity weight than the maximum inter-category edge. 
+    Let the maximum inter-category edge in the final solution be $e$ 
+    and the lower intra-category edge be $e \prime$
+    If $e \prime$ had a lower weight than $e$,
+    Then $e \prime$ would have been included by the algorithm, as 
+    the algorithm processes it in decreasing order.
+    By the time the algorithm processes $e \prime$ its endpoints would have already
+    been merged, forming an intra-category connection.
+
+    Therefore, the greedy algorithm would have already created an 
+    intra-category connection at a higher similarity, 
+    contradicting the assumption that $e \prime$ has a lower similarity than $e$.
+
+    \item We can say that since the $C$ is already an optimal solution with inter-category
+    edges, then it is true that the lower bound may be $s_{min}$ where it is the minimum
+    similarity between any two points in the dataset, and the upper bound may be $s_{max}$ where
+    it is the maximum similarity between any two points in the dataset.
+\end{enumerate}
+
+
+\end{document}
