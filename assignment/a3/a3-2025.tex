@@ -4,6 +4,7 @@
 \usepackage{fancyvrb}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{amsthm}
 \usepackage{hyperref}
 \usepackage{algpseudocode}
 \usepackage{comment}
@@ -143,7 +144,27 @@ In this scenario, an optimal greedy algorithm is to sort the jobs in order of $w
 	Give and briefly explain a counterexample to show that the greedy strategy of completing projects in decreasing order of $w_i$ is not optimal for this variant of the problem.
 
     \begin{soln}
-        Solutions here
+        Consider the following instance given for $n = 4$ and two jobs, $j_1$ and $j_2$ 
+        \begin{center}
+            \begin{tabular}{|c|c|c|c|}
+                \hline
+                Jobs $j_i$ & Weight $w_i$ & Days $t_i$ & Completion $c_i$ \\
+                \hline
+                $j_1$ & 5 & 3 & 3 \\
+                $j_2$ & 4 & 1 & 4 \\
+                \hline
+            \end{tabular}
+        \end{center}
+        The greedy algorithm will sort the jobs in order of $w_i$, so it will complete $j_1$ first and then $j_2$. 
+        The completion times for the jobs are $c_1 = 3$ and $c_2 = 4$, respectively. 
+        The satisfaction for the clients is $s_1 = 1$ and $s_2 = 0$, respectively. 
+        The weighted sum of satisfaction is $5 \cdot (4 - 3) + 4 \cdot (4 - 4) = 5$.
+
+        Now, consider the optimal solution where we complete $j_2$ first and then $j_1$.
+        The completion times for the jobs are $c_2 = 1$ and $c_1 = 4$, respectively.
+        The satisfaction for the clients is $s_2 = 3$ and $s_1 = 0$, respectively.
+        The weighted sum of satisfaction is $4 \cdot (4 - 1) + 5 \cdot (4 - 4) = 12$.
+
     \end{soln}
 
     \ifsolutions \input{q3a-sol.tex} \fi
@@ -151,8 +172,43 @@ In this scenario, an optimal greedy algorithm is to sort the jobs in order of $w
     \question[2] Describe a greedy strategy that is optimal on the problem variant described in part 1. A one-sentence description is sufficient (e.g., describe the order that you would use to sort the projects).
      \ifsolutions \input{q3b-sol.tex} \fi
 
+     \begin{soln}
+        The work and time ratio $w_i/t_i$ is the key to the greedy strategy. We will sort the jobs in decreasing order of $w_i/t_i$.
+     \end{soln}
+
     \question[5] Prove that your greedy strategy from part 2 is optimal.
      \ifsolutions \input{q3c-sol.tex} \else \newpage \fi
+     \begin{soln}
+        \begin{proof}
+            We want to show that it is optimal by using an exchange argument. 
+            Suppose that there is an optimal solution that does not follow the greedy strategy. 
+            Let $j_i$ and $j_k$ be two jobs in the optimal solution such that $j_i$ is completed 
+            before $j_k$ but $j_k$ has a higher work and time ratio than $j_i$. 
+
+            Let's consider the optimal schedule $S$ with jobs $j_1, j_2, \ldots, j_n$ in that order, and suppose that there are two adjacent jobs $j_i$ and $j_{i+1}$ such that $\frac{w_i}{t_i} < \frac{w_{i+1}}{t_{i+1}}$. 
+
+            Let $T$ be the sum of times of all jobs scheduled before $j_i$. In schedule $S$, job $j_i$ completes at time $c_i = T + t_i$ and job $j_{i+1}$ completes at time $c_{i+1} = T + t_i + t_{i+1}$. 
+            
+            The contribution of these two jobs to the total weighted satisfaction is:
+            $w_i(n-(T+t_i)) + w_{i+1}(n-(T+t_i+t_{i+1}))$
+            
+            Now consider schedule $S'$ obtained by swapping $j_i$ and $j_{i+1}$. In $S'$, job $j_{i+1}$ completes at time $c'_{i+1} = T + t_{i+1}$ and job $j_i$ completes at time $c'_i = T + t_{i+1} + t_i$.
+            
+            The contribution of these two jobs to the total weighted satisfaction in $S'$ is:
+            $w_{i+1}(n-(T+t_{i+1})) + w_i(n-(T+t_{i+1}+t_i))$
+            
+            The difference in weighted satisfaction between $S'$ and $S$ is:
+            \begin{align}
+            &[w_{i+1}(n-T-t_{i+1}) + w_i(n-T-t_{i+1}-t_i)] - [w_i(n-T-t_i) + w_{i+1}(n-T-t_i-t_{i+1})]\\
+            &= w_{i+1}(n-T-t_{i+1}) - w_{i+1}(n-T-t_i-t_{i+1}) + w_i(n-T-t_{i+1}-t_i) - w_i(n-T-t_i)\\
+            &= w_{i+1}t_i - w_it_{i+1}
+            \end{align}
+            
+            Since $\frac{w_{i+1}}{t_{i+1}} > \frac{w_i}{t_i}$, we have $w_{i+1}t_i > w_it_{i+1}$, which means the difference is positive.
+
+            Therefore, swapping $j_i$ and $j_{i+1}$ increases the weighted satisfaction. This contradicts the optimality of the original solution $S$. 
+        \end{proof}
+     \end{soln}
 
 \end{questions}
 \section{Weekly Meeting Logistics}
@@ -170,19 +226,81 @@ Your volunteer shifts are given as an input list $V$, and each volunteer shift $
 \end{quote}
 Give and briefly explain a counterexample to prove that this greedy strategy is not optimal.
 
+\begin{soln}
+    Consider the following instance with 5 shifts:
+    \begin{center}
+        \begin{tabular}{|c|c|c|c|}
+            \hline
+            Shift & Start Time & End Time & Overlaps with \\
+            \hline
+            $v_1$ & 1 & 6 & $v_2, v_3, v_4$ \\
+            $v_2$ & 2 & 3 & $v_1$ \\
+            $v_3$ & 3 & 4 & $v_1$ \\
+            $v_4$ & 4 & 5 & $v_1, v_5$ \\
+            $v_5$ & 5 & 7 & $v_4$ \\
+            \hline
+        \end{tabular}
+    \end{center}
+    
+    The greedy algorithm will select $v_1$ first since it overlaps with the most shifts (3 shifts). 
+    After removing $v_1, v_2, v_3, v_4$, we are left with just $v_5$, which we also have to select.
+    So the greedy algorithm selects 2 shifts: $v_1$ and $v_5$.
+    
+    However, the optimal solution is to select just $v_4$, which overlaps with $v_1$ and $v_5$, 
+    and then $v_1$ overlaps with $v_2$ and $v_3$. So one shift ($v_4$) covers all shifts.
+\end{soln}
+
 \ifsolutions\input{q4a-sol.tex}\fi 
 
 \question[3] Give a greedy algorithm to solve this problem. Give an unambiguous specification of your algorithm using  a \textbf{brief, plain English description}. Do not write pseudocode or worry about implementation details yet. (You may do this in part 3 if you feel that it's necessary to achieve a particular runtime.)
+
+\begin{soln}
+    Sort all volunteer shifts by their end times in ascending order. Do this:
+    \begin{enumerate}
+        \item Start with an empty set of selected shifts.
+        \item Create a set of "covered" shifts (initially empty).
+        \item While there are uncovered shifts remaining:
+            \begin{enumerate}
+                \item Find the earliest-ending uncovered shift $s$.
+                \item Among all shifts that overlap with $s$ (including $s$ itself), select the shift $t$ that overlaps with the most uncovered shifts.
+                \item Add $t$ to our set of selected shifts.
+                \item Mark all shifts that overlap with $t$ as "covered".
+            \end{enumerate}
+        \item Return the set of selected shifts.
+    \end{enumerate}
+    
+    This approach prioritizes selecting shifts that can efficiently cover the remaining uncovered shifts, starting with the earliest-ending shifts to ensure we don't miss any potential overlaps.
+\end{soln}
 
 \ifsolutions\input{q4b-sol.tex}\fi 
 
 \question[4] Briefly justify a good asymptotic bound on the runtime of your algorithm. If you prefer to present pseudo-code to help track the runtime incurred, you may do so.
 
+\begin{soln}
+    Let's analyze the runtime of our algorithm:
+    
+    \begin{enumerate}
+        \item Sorting all volunteer shifts by end times takes $O(n \log n)$ time, where $n$ is the number of shifts.
+        
+        \item For each uncovered shift, we need to:
+        \begin{itemize}
+            \item Find the earliest-ending uncovered shift, which takes $O(n)$ time in the worst case.
+            \item For this shift, we check all other shifts to find overlaps, which takes $O(n)$ time.
+            \item Among overlapping shifts, we count how many uncovered shifts each overlaps with, which takes $O(n^2)$ time in the worst case, as we may need to check each shift against all other shifts.
+            \item Marking shifts as covered takes $O(n)$ time.
+        \end{itemize}
+        
+        \item In the worst case, we might select only one shift per iteration, requiring $O(n)$ iterations.
+    \end{enumerate}
+    
+    Combining these steps, the overall runtime is:
+    $O(n \log n) + O(n) \cdot (O(n) + O(n) + O(n^2) + O(n)) = O(n \log n) + O(n^3) = O(n^3)$.
+\end{soln}
+
 \ifsolutions\input{q4e-sol.tex}\fi 
 
 \end{questions}
 
-\clearpage
 \section{Fun with Recurrences}
 
 Give an asymptotic solution (which should be a $\Theta$-bound) to each of the recurrences below. You may use whatever solution method you wish (drawing out the tree, unrolling the recurrence, proof by induction, Master Theorem, etc.), but make sure you fully justify your answer.
@@ -191,17 +309,111 @@ Give an asymptotic solution (which should be a $\Theta$-bound) to each of the re
 
     \question[3] $T(n) = 6T\left( \frac{n}{2} \right) + 2^n$ for $n > 1$, $T(1) = 1$.
 
+    \begin{soln}
+        We will use the Master Theorem to solve this recurrence. 
+        The recurrence is of the form 
+        
+        \[T(n) = aT\left( \frac{n}{b} \right) + f(n)$, where $a = 6$, $b = 2$, and $f(n) = 2^n\]
+
+        First, we compute 
+        
+        \[n^{\log_b a} = n^{\log_2 6} \approx n^{2.58}\]
+
+        Since $f(n) = 2^n$ grows faster than any polynomial, we have 
+
+        \[f(n) = \Omega(n^{\log_b a + \epsilon})\] for any constant $\epsilon > 0$.
+
+        For Case 3 of the Master Theorem to apply, we also need to verify the regularity condition:
+        $af\left(\frac{n}{b}\right) \leq cf(n)$ for some constant $c < 1$ and sufficiently large $n$.
+
+        Checking this condition:
+        
+        \[af\left(\frac{n}{b}\right) = 6 \cdot 2^{n/2} = 6 \cdot 2^{-n/2} \cdot 2^n\]
+
+        Since $6 \cdot 2^{-n/2} < 1$ for sufficiently large $n$, the regularity condition is satisfied.
+
+        Therefore, by Case 3 of the Master Theorem, $T(n) = \Theta(f(n)) = \Theta(2^n)$.
+    \end{soln}
+
     \ifsolutions\input{q5a-sol.tex}\fi 
 
     \question[3] $T(n) = T\left( \frac{n}{4} \right) + 2T\left( \frac{n}{16} \right) + \sqrt{n}$ for $n > 16$, $T(n) = 1$ for $n \le 16$.
 
+    \begin{soln}
+        We expand the recurrence tree by repeatedly substituting the terms:
+        \[
+        T(n) = T\left(\frac{n}{4}\right) + 2T\left(\frac{n}{16}\right) + \sqrt{n}.
+        \]
+        Expanding further:
+        \[
+        T\left(\frac{n}{4}\right) = T\left(\frac{n}{16}\right) + 2T\left(\frac{n}{64}\right) + \sqrt{\frac{n}{4}},
+        \]
+        \[
+        T\left(\frac{n}{16}\right) = T\left(\frac{n}{64}\right) + 2T\left(\frac{n}{256}\right) + \sqrt{\frac{n}{16}}.
+        \]
+        Substituting back, we get:
+        \[
+        T(n) = T\left(\frac{n}{16}\right) + 2T\left(\frac{n}{64}\right) + \sqrt{\frac{n}{4}} + 2T\left(\frac{n}{16}\right) + 4T\left(\frac{n}{64}\right) + 2\sqrt{\frac{n}{16}} + \sqrt{n}.
+        \]
+        Observing the pattern, the recursive calls keep breaking down, and the sum of all extra terms is:
+        \[
+        \sqrt{n} + \sqrt{\frac{n}{4}} + 2\sqrt{\frac{n}{16}} + 4\sqrt{\frac{n}{64}} + \dots
+        \]
+        which forms a geometric series.
+        The series follows:
+        \[
+        S = \sqrt{n} \left( 1 + \frac{1}{2} + \frac{2}{4} + \frac{4}{8} + \dots \right).
+        \]
+        Observing the growth, this geometric series converges to \( O(\sqrt{n}) \).
+        Since the recursion depth is logarithmic, and at each level, the dominant cost is \( O(\sqrt{n}) \), the final complexity is:
+        \[
+        T(n) = \Theta(\sqrt{n}).
+        \]
+    \end{soln}
     \ifsolutions\input{q5b-sol.tex}\fi 
 
     \question[4] $T(n) = mT(n-1) + 1$ for $n > 1$, $T(1) = 1$. Assume that $m$ is an integer value greater than or equal to 2.
 
+    \begin{soln}
+        We will use the iterative/rollout method to solve this recurrence.
+        We have 
+        \[T(n) = mT(n-1) + 1\]
+        \[= m[mT(n-2) + 1] + 1\]
+        \[= m^2T(n-2) + m + 1\]
+        \[= m^2[mT(n-3) + 1] + m + 1\]
+        \[= m^3T(n-3) + m^2 + m + 1\]
+        \[= \dots\]
+        \[= m^{n-1}T(1) + m^{n-2} + m^{n-3} + \dots + m + 1\]
+        \[= m^{n-1} + m^{n-2} + m^{n-3} + \dots + m + 1\]
+        \[= \frac{m^n - 1}{m - 1}\]
+        \[= \Theta(m^n)\]        
+    \end{soln}
+
     \ifsolutions\input{q5c-sol.tex}\fi 
 
     \question[4] $T(n) = mT(\frac{n}{4}) + n^2$ for $n \ge 4$; $T(n) = 1$ for $n < 4$. Assume that $m$ is greater than or equal to 1 (but not necessarily an integer).
+
+    \begin{soln}
+        We will use the Master Theorem to solve this recurrence.
+        The recurrence is of the form $T(n) = mT\left( \frac{n}{b} \right) + f(n)$, where $m = m$, $b = 4$, and $f(n) = n^2$.
+
+        First, we compute
+        \[n^{\log_b m} = n^{\log_4 m}.\]
+
+        Since $f(n) = n^2$ is a polynomial, we have $f(n) = \Theta(n^{\log_b m})$.
+
+        For Case 1 of the Master Theorem to apply, we also need to verify the regularity condition:
+
+        \[af\left(\frac{n}{b}\right) \leq cf(n)\] for some constant $c < 1$ and sufficiently large $n$.
+
+        Checking this condition:
+
+        \[af\left(\frac{n}{b}\right) = m \cdot \left(\frac{n}{4}\right)^2 = \frac{m}{16}n^2\]
+
+        Since $\frac{m}{16} < 1$ for sufficiently large $n$, the regularity condition is satisfied.
+
+        Therefore, by Case 1 of the Master Theorem, $T(n) = \Theta(n^{\log_b m}) = \Theta(n^{\log_4 m})$.
+    \end{soln}
 
     \ifsolutions\input{q5d-sol.tex}\fi 
 
