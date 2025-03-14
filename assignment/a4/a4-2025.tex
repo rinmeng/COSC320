@@ -439,6 +439,15 @@ Bonus: Suppose that instead of using the $\subsum()$ function to score a subarra
 \]
 where $b, c \in \mathbb{Z}$ and $x$ is the sum of all the elements in the sub-array $A[l..r]$. For this variant, we want to find the score of a partition that maximizes the sum of all subarrays.  Explain how we can achieve this with an algorithm whose runtime is faster than that for the original problem.
 
+\begin{soln}
+   The absence of the $x^2$ term in the scoring function $\subsum'(l,r)$ 
+   means that the scoring function is linear in the sum of the 
+   elements in the subarray. This means that the score of a partition 
+   is maximized by maximizing the sum of the elements in the subarrays. 
+   Therefore, the optimal partition is to have all the elements in one subarray. 
+   This can be done in $O(n)$ time by computing the sum of all the elements in the array.
+\end{soln}
+
 \ifsolutions
 \input{q4f-soln.tex}
 \else
@@ -480,8 +489,8 @@ develop a dynamic programming algorithm  to compute $HP(1,1)$. Remember that a d
 \begin{soln}
    \begin{algorithmic}[1]
       \Function{HP}{$G[1..m][1..n]$}
-         \State $m \gets \text{# rows of } G$
-         \State $n \gets \text{# columns of } G$
+         \State $m \gets \text{nums rows of } G$
+         \State $n \gets \text{nums columns of } G$
          \State $HP[m+1][n+1] \gets \infty$
          \State $HP[m][n] \gets \max(1, 1 - G[m,n])$
          \For{$i = m$ down to $1$}

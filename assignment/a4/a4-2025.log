@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.13)  13 MAR 2025 22:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.13)  13 MAR 2025 22:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -602,7 +602,29 @@ File: tikzlibrarytrees.code.tex 2023-01-15 v3.1.10 (3.1.10)
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count375
 \l__pdf_internal_box=\box70
-) (./a4-2025.aux)
+) (./a4-2025.aux
+
+LaTeX Warning: Label `question@1' multiply defined.
+
+
+LaTeX Warning: Label `question@2' multiply defined.
+
+
+LaTeX Warning: Label `question@3' multiply defined.
+
+
+LaTeX Warning: Label `question@4' multiply defined.
+
+
+LaTeX Warning: Label `question@1' multiply defined.
+
+
+LaTeX Warning: Label `question@2' multiply defined.
+
+
+LaTeX Warning: Label `question@3' multiply defined.
+
+)
 \openout1 = `a4-2025.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 76.
@@ -624,6 +646,7 @@ LaTeX Font Info:    ... okay on input line 76.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 76.
 LaTeX Font Info:    ... okay on input line 76.
 Package hyperref Info: Link coloring OFF on input line 76.
+ (./a4-2025.out) (./a4-2025.out)
 \@outlinefile=\write6
 \openout6 = `a4-2025.out'.
 
@@ -690,93 +713,9 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 [4]
 
 [5]
-/Users/rin/eclipse-workspace/COSC320/assignment/a4/a4-2025.tex:483: You can't use `macro parameter character #' in restricted horizontal mode.
-<argument> ##
-              rows of 
-l.483          \State $m \gets \text{# rows of }
-                                                 G$
-Sorry, but I'm not programmed to handle this case;
-I'll just pretend that you didn't ask for it.
-If you're in the wrong mode, you might be able to
-return to the right one by typing `I}' or `I$' or `I\par'.
-
-/Users/rin/eclipse-workspace/COSC320/assignment/a4/a4-2025.tex:483: You can't use `macro parameter character #' in restricted horizontal mode.
-<argument> \firstchoice@false ##
-                                 rows of 
-l.483          \State $m \gets \text{# rows of }
-                                                 G$
-Sorry, but I'm not programmed to handle this case;
-I'll just pretend that you didn't ask for it.
-If you're in the wrong mode, you might be able to
-return to the right one by typing `I}' or `I$' or `I\par'.
-
-/Users/rin/eclipse-workspace/COSC320/assignment/a4/a4-2025.tex:483: You can't use `macro parameter character #' in restricted horizontal mode.
-<argument> \firstchoice@false ##
-                                 rows of 
-l.483          \State $m \gets \text{# rows of }
-                                                 G$
-Sorry, but I'm not programmed to handle this case;
-I'll just pretend that you didn't ask for it.
-If you're in the wrong mode, you might be able to
-return to the right one by typing `I}' or `I$' or `I\par'.
-
-/Users/rin/eclipse-workspace/COSC320/assignment/a4/a4-2025.tex:483: You can't use `macro parameter character #' in restricted horizontal mode.
-<argument> \firstchoice@false ##
-                                 rows of 
-l.483          \State $m \gets \text{# rows of }
-                                                 G$
-Sorry, but I'm not programmed to handle this case;
-I'll just pretend that you didn't ask for it.
-If you're in the wrong mode, you might be able to
-return to the right one by typing `I}' or `I$' or `I\par'.
-
-/Users/rin/eclipse-workspace/COSC320/assignment/a4/a4-2025.tex:484: You can't use `macro parameter character #' in restricted horizontal mode.
-<argument> ##
-              columns of 
-l.484 ...     \State $n \gets \text{# columns of }
-                                                   G$
-Sorry, but I'm not programmed to handle this case;
-I'll just pretend that you didn't ask for it.
-If you're in the wrong mode, you might be able to
-return to the right one by typing `I}' or `I$' or `I\par'.
-
-/Users/rin/eclipse-workspace/COSC320/assignment/a4/a4-2025.tex:484: You can't use `macro parameter character #' in restricted horizontal mode.
-<argument> \firstchoice@false ##
-                                 columns of 
-l.484 ...     \State $n \gets \text{# columns of }
-                                                   G$
-Sorry, but I'm not programmed to handle this case;
-I'll just pretend that you didn't ask for it.
-If you're in the wrong mode, you might be able to
-return to the right one by typing `I}' or `I$' or `I\par'.
-
-/Users/rin/eclipse-workspace/COSC320/assignment/a4/a4-2025.tex:484: You can't use `macro parameter character #' in restricted horizontal mode.
-<argument> \firstchoice@false ##
-                                 columns of 
-l.484 ...     \State $n \gets \text{# columns of }
-                                                   G$
-Sorry, but I'm not programmed to handle this case;
-I'll just pretend that you didn't ask for it.
-If you're in the wrong mode, you might be able to
-return to the right one by typing `I}' or `I$' or `I\par'.
-
-/Users/rin/eclipse-workspace/COSC320/assignment/a4/a4-2025.tex:484: You can't use `macro parameter character #' in restricted horizontal mode.
-<argument> \firstchoice@false ##
-                                 columns of 
-l.484 ...     \State $n \gets \text{# columns of }
-                                                   G$
-Sorry, but I'm not programmed to handle this case;
-I'll just pretend that you didn't ask for it.
-If you're in the wrong mode, you might be able to
-return to the right one by typing `I}' or `I$' or `I\par'.
-
-
 
 [6]
 This exam contains 14 questions with 0 parts, 0 subparts, and 0 subsubparts.
-
-Class exam Warning: Point totals have changed. Rerun to get point totals right.
-
 (./a4-2025.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
@@ -784,30 +723,24 @@ L3 programming layer <2025-01-18>
  ***********
 
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: There were multiply-defined labels.
 
-
-Package rerunfilecheck Warning: File `a4-2025.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `a4-2025.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  9960F821D7158A18C32F3053CCEFBBF9;1023.
+Package rerunfilecheck Info: File `a4-2025.out' has not changed.
+(rerunfilecheck)             Checksum: 9960F821D7158A18C32F3053CCEFBBF9;1023.
  ) 
 Here is how much of TeX's memory you used:
- 25026 strings out of 475165
- 471142 string characters out of 5765319
- 863411 words of memory out of 5000000
- 47591 multiletter control sequences out of 15000+600000
+ 25038 strings out of 475165
+ 471278 string characters out of 5765319
+ 863885 words of memory out of 5000000
+ 47599 multiletter control sequences out of 15000+600000
  573658 words of font info for 72 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  102i,11n,107p,533b,1159s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </Users/rin/Library/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1095.600pk> </Users/rin/Library/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1095.600pk> </Users/rin/Library/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0900.600pk> </Users/rin/Library/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/eccc1095.600pk> </Users/rin/Library/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </Users/rin/Library/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1095.600pk> </Users/rin/Library/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1095.600pk> </Users/rin/Library/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.600pk></Users/rin/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></Users/rin/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/rin/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></Users/rin/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></Users/rin/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/rin/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></Users/rin/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></Users/rin/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/rin/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></Users/rin/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on a4-2025.pdf (6 pages, 172021 bytes).
+Output written on a4-2025.pdf (6 pages, 172831 bytes).
 PDF statistics:
- 363 PDF objects out of 1000 (max. 8388607)
- 128 compressed objects within 2 object streams
+ 379 PDF objects out of 1000 (max. 8388607)
+ 144 compressed objects within 2 object streams
  37 named destinations out of 1000 (max. 500000)
- 13 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 53 words of extra memory for PDF output out of 10000 (max. 10000000)
 
