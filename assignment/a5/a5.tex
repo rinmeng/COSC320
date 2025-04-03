@@ -409,13 +409,76 @@ In this question, we consider special cases of NP-complete problems. Formally, w
 
 Give an NP-complete problem that is a special case of BLST, and justify why this problem is a special case.
 
+\begin{soln}
+      Hamiltonian Path is an NPC problem that is a special case of BLST.
+      For the Hamiltonian Path problem, we are given a graph $G = (V, E)$ 
+      and we want to determine if there is a path
+      from $s$ to $t$ that visits every vertex in $G$ exactly once.
+      For BLST, we are given a graph $G = (V, E)$ and an integer $k$, 
+      and we want to determine if there is a spanning tree with no more than $k$ 
+      leaves.
+
+      \textbf{Justification: }In BLST, a leaf is a vertex with degree of 1 
+      in the spanning tree, and the Hamiltonian Path problem can be 
+      viewed as a special case of BLST where $k = 2$, and Hamiltonian Path
+      in $G$ as a spanning tree with exactly 2 vertices of degree 1
+      (the start and end vertices of the path).
+      Therefore, this corresponds to spanning tree with exactly two leaves.
+
+      In conclusion, Hamiltonian Path is equivalent to BLST with $k = 2$.
+      Since Hamiltonian Path is NP-complete, and BLST is a special case of it,
+\end{soln}
+
+
 \ifsolutions\input{q3a-sol.tex}\fi
 
 \question[3] You showed in the previous question that there is an NP-complete problem that is a special case of BLST, and it is not difficult to show that BLST is in NP (though we are not asking you to do this). Does this imply that BLST is NP-complete? Justify your answer.
 
+\begin{soln}
+      
+Yes, it does imply that BLST is NP-complete.
+
+\textbf{Special Case and NP-Hardness:} In the previous part, 
+we showed that the Hamiltonian Path problem 
+(which is NP-complete) is a special case of BLST. 
+This means that every instance of the Hamiltonian Path problem can 
+be viewed as an instance of BLST (by setting 
+$k = 2$ in BLST). Since the Hamiltonian Path problem is NP-complete, 
+BLST must be at least as hard as the Hamiltonian Path problem. 
+So it must be true that this implies that BLST is NP-hard.
+
+\textbf{BLST is in NP: }We are told that BLST is in NP.
+When you have a problem that is NP-hard and also belongs to NP, 
+the problem is NP-complete.
+
+So, since BLST has an NP-complete special case (making it NP-hard) 
+and it is also in NP, it follows by definition that BLST is NP-complete.
+\end{soln}
+
 \ifsolutions\input{q3b-sol.tex}\fi
 
 \question[4] Give an example of a polytime-solvable problem you have seen in this class that is a special case of an NP-complete problem. Justify your answer.
+
+\begin{soln}
+      The \textbf{Minimum Spanning Tree (MST)} problem is a polytime-solvable 
+      problem that is a special case of the \textbf{Steiner Tree} problem. 
+
+      \textbf{Justification: }In the MST problem, we are given a connected,
+       undirected graph $G = (V, E)$ and we want to find a spanning tree with 
+       minimum weight. 
+      In the Steiner Tree problem, we are given a connected, undirected graph 
+      $G = (V, E)$ and a subset of vertices $T \subseteq V$, and we want to 
+      find a minimum-weight tree that spans all vertices in $T$.
+
+      The MST problem can be viewed as a special case of the Steiner Tree 
+      problem where $T = V$. In this case, the goal is to find a minimum-weight 
+      tree that spans all vertices in $V$, which is exactly what the MST problem 
+      asks for. Since the MST problem can be solved in polynomial time using 
+      algorithms like Prim's or Kruskal's algorithm, it follows that the Steiner Tree 
+      problem is at least as hard as the MST problem.
+      Therefore, the MST problem is a special case of the Steiner Tree problem.
+\end{soln}
+
 
 \ifsolutions\input{q3c-sol.tex}\fi
 
