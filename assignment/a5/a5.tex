@@ -1,0 +1,127 @@
+\documentclass[11pt,fleqn]{exam}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fancyvrb}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{algpseudocode}
+\usepackage{comment}
+\usepackage{enumitem}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{arrows,arrows.meta,positioning,intersections,shapes.gates.logic.US,calc}
+\algnewcommand\algorithmicforeach{\textbf{for each}}
+\algdef{S}[FOR]{ForEach}[1]{\algorithmicforeach\ #1\ \algorithmicdo}
+\newcommand{\fillinMCmath}[1]{\begin{tikzpicture}\draw circle [radius=0.5em];\end{tikzpicture}\ #1}
+\newcommand{\fillinMCmathsoln}[1]{\begin{tikzpicture}\draw[black, fill=blue] circle [radius=0.5em];\end{tikzpicture}\ #1}
+\newcommand{\fillinblank}[1]{\fillinblankmath{\mbox{#1}}}
+\newcommand{\fillinblankmath}[1]{\begingroup\setlength{\fboxsep}{1em}\setlength{\fboxrule}
+{2pt}\fbox{\LARGE\phantom{#1}}\endgroup}
+\newcommand{\fillinblankmathsoln}[1]{\begingroup\setlength{\fboxsep}{1em}\setlength{\fboxrule}
+{2pt}\fbox{#1}\endgroup}
+\newcommand{\ptsamt}[1]{[#1~points]}
+\newcommand{\ptamt}[1]{[#1~point]}
+
+%%% Adding Colour to Questions and Answers
+\usepackage{color}
+
+\definecolor{solnblue}{rgb}{0,0,1}
+\newenvironment{soln}{\color{solnblue}}{}
+
+%fancyvrb commands
+\def\lar{$\leftarrow$}
+\def\lesseq{$\leq$}
+\def\alp{$\alpha$}
+\def\inf{$\infty$}
+
+%Questions
+
+% Answers
+\definecolor{blu}{rgb}{0,0,0.5}
+\def\blu#1{{\color{blu}#1}}
+\definecolor{gre}{rgb}{0,.3,0}
+\def\gre#1{{\color{gre}#1}}
+\definecolor{red}{rgb}{0.5,0.0,0}
+\def\red#1{{\color{red}#1}}
+\def\norm#1{\|#1\|}
+%%% End for Colours
+
+\bracketedpoints
+
+\makeatletter
+\renewenvironment{solution}{\leavevmode\par\begin{soln}\noindent Solution:}{\end{soln}}
+\makeatother
+
+% \newif\ifsolutions\solutionstrue
+\newif\ifsolutions\solutionsfalse
+
+\ifsolutions
+\title{COSC 320: Assignment 5 Solutions}
+\else
+\title{COSC 320: Assignment 5}
+\fi
+	
+\author{}
+\date{}
+
+\ifsolutions
+\title{COSC 320: Assignment 5 Solutions}
+\else
+\title{COSC 320: Assignment 5}
+\fi
+
+\begin{document}
+
+	\maketitle
+
+    \ifsolutions
+\setcounter{section}{2}
+\else
+ This assignment is due \textbf{Friday, April 4 at 7 PM}. Late submissions will not be accepted. All the submission and formatting rules for Assignment~1 apply to this assignment as well.  
+
+%------------------------------------------------------------------------------------
+\section{List of names of group members (as listed on Canvas)}
+
+Provide the list here. This is worth 1 mark. Include student numbers as a secondary failsafe if you wish.
+
+\section{Statement on collaboration and use of resources}
+To develop good practices in doing homeworks, citing resources and acknowledging input from others, please complete the following. This question is worth 2 marks.
+
+\begin{enumerate}
+\item All group members have read and followed the guidelines for groupwork on assignments given in the Syllabus).
+
+\fillinMCmath{Yes} \hspace{.5in} \fillinMCmath{No}
+
+\item We used the following resources (list books, online sources, etc. that you consulted):
+\item One or more of us consulted with course staff during office hours.
+
+\fillinMCmath{Yes} \hspace{.5in} \fillinMCmath{No}
+
+\item One or more of us collaborated with other COSC 320 students; none of us took
+      written notes during our consultations and we took at least a half-hour break afterwards.
+
+\fillinMCmath{Yes} \hspace{.5in} \fillinMCmath{No}
+
+      If yes, please list their name(s) here:
+
+\item One or more of us collaborated with or consulted others outside of COSC 320; none of us took written notes during our consultations and we took at least a half-hour break afterwards.
+
+\fillinMCmath{Yes} \hspace{.5in} \fillinMCmath{No}
+
+      If yes, please list their name(s) here:
+
+\end{enumerate}
+\newpage
+\fi
+
+%==========================================
+    
+	\clearpage
+	
+	
+    \input{q1.tex}
+    \input{q2.tex}
+    \input{q3.tex}
+
+\end{document}
